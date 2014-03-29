@@ -4,5 +4,10 @@
 <body>
 <h1>Manage your Tasks</h1>
 <a href="/task/new">Add a Task</a>
+<ul>
+  <% TASK_ARR.each do |task| %>
+    <li><%= task %></li>
+  <% end %>
+</ul>
 </body>
 </html>
