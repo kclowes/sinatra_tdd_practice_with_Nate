@@ -5,8 +5,10 @@
 <h1>Manage your Tasks</h1>
 <a href="/task/new">Add a Task</a>
 <ul>
+  <% index = 0 %>
   <% TASK_ARR.each do |task| %>
-    <li><%= task %></li>
+    <li><%= task %> - <a href="/task/<%= index %>">Show Task</a></li>
+    <% index += 1 %>
   <% end %>
 </ul>
 </body>

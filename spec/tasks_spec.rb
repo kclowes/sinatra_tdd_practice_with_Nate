@@ -14,5 +14,7 @@ feature 'it manages tasks' do
     fill_in 'new_task', with: 'Go shopping'
     click_button 'Add Task'
     expect(page).to have_content 'Go shopping'
+    click_link 'Show Task'
+    expect(page).to have_content 'Go shopping'
   end
 end
