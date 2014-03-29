@@ -7,6 +7,9 @@ Capybara.app = App
 feature 'it manages tasks' do
   scenario 'user can see the homepage' do
     visit '/'
-    expect(page).to have_content 'Welcome'
+    within 'h1' do
+      expect(page).to have_content 'Manage your Tasks'
+    end
+    click_link 'Add a Task'
   end
 end
