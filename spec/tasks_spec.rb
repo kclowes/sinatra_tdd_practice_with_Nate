@@ -10,11 +10,25 @@ feature 'it manages tasks' do
     within 'h1' do
       expect(page).to have_content 'Manage your Tasks'
     end
-    click_link 'Add a Task'
-    fill_in 'new_task', with: 'Go shopping'
-    click_button 'Add Task'
-    expect(page).to have_content 'Go shopping'
-    click_link 'Show Task'
-    expect(page).to have_content 'Go shopping'
+
+    by 'user can add a task' do
+      click_link 'Add a Task'
+      fill_in 'new_task', with: 'Go shopping'
+      click_button 'Add Task'
+      expect(page).to have_content 'Go shopping'
+    end
+
+    and_by 'user can view tasks individually' do
+      click_link 'Show Task'
+      expect(page).to have_content 'Go shopping'
+    end
+
+    and_by 'user can edit tasks' do
+      click_link 'Edit Task'
+      fill_in 'edit_task', with: 'Clean'
+      click_button 'Edit Task'
+      expect(page).to_not have_content 'Go shopping'
+      expect(page).to have_content 'Clean'
+    end
   end
 end

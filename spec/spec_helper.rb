@@ -6,3 +6,9 @@ RSpec.configure do |config|
   config.filter_run :focus
   config.order = 'random'
 end
+
+def by(message)
+  yield
+end
+
+alias and_by by
