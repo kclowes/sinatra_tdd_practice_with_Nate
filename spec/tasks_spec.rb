@@ -30,5 +30,11 @@ feature 'it manages tasks' do
       expect(page).to_not have_content 'Go shopping'
       expect(page).to have_content 'Clean'
     end
+
+    and_by 'user can delete tasks' do
+      click_link 'Show Task'
+      click_button 'Delete Task'
+      expect(page).to_not have_content 'Clean'
+    end
   end
 end

@@ -1,7 +1,9 @@
 require 'sinatra/base'
 
 class App < Sinatra::Application
+
   TASK_ARR = []
+
   get '/' do
     erb :index
   end
@@ -25,6 +27,11 @@ class App < Sinatra::Application
 
   put '/task/:id' do
     TASK_ARR[params[:id].to_i] = params[:edit_task]
+    redirect '/'
+  end
+
+  delete '/task/:id' do
+    TASK_ARR.delete_at(params[:id].to_i)
     redirect '/'
   end
 end
